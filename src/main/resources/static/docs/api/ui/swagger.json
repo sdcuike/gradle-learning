@@ -1,0 +1,150 @@
+{
+  "swagger": "2.0",
+  "info" : {
+    "version" : "0.0.0",
+    "title" : "文档测试"
+  },
+  "basePath" : "",
+  "schemes" : [],
+  "tags" : [
+    {
+      "name" : "DemoController"
+    }
+  ],
+  "definitions" : {
+    "json_DemoRequestDto" : {
+      "type" : "object",
+      "title" : "DemoRequestDto",
+          "properties" : {
+            "name" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "string"
+            },
+            "age" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "number"
+            }
+          },
+      "example" : {
+  "name" : "...",
+  "age" : 12345
+},
+      "description" : ""
+    }
+    ,
+    "json_DemoResponseDto" : {
+      "type" : "object",
+      "title" : "DemoResponseDto",
+          "properties" : {
+            "code" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "number"
+            },
+            "msg" : {
+            "readOnly" : false,
+"description" : "",
+"type" : "string"
+            }
+          },
+      "example" : {
+  "code" : 12345,
+  "msg" : "..."
+},
+      "description" : ""
+    }
+    ,
+    "xml_ns0_demoRequestDto" : {
+      "type" : "object",
+      "title" : "demoRequestDto",
+      "allOf" : [
+        {
+          "properties" : {
+            "age" : {
+              "xml" : {
+                "namespace" : ""
+              },
+            "readOnly" : false,
+"description" : "",
+"type" : "integer",
+"format" : "int32"
+            },
+            "name" : {
+              "xml" : {
+                "namespace" : ""
+              },
+            "readOnly" : false,
+"description" : "",
+"type" : "string"
+            }
+          }
+        }
+      ],
+      "description" : ""
+    }
+    ,
+    "xml_ns0_demoResponseDto" : {
+      "type" : "object",
+      "title" : "demoResponseDto",
+      "allOf" : [
+        {
+          "properties" : {
+            "code" : {
+              "xml" : {
+                "namespace" : ""
+              },
+            "readOnly" : false,
+"description" : "",
+"type" : "integer",
+"format" : "int32"
+            },
+            "msg" : {
+              "xml" : {
+                "namespace" : ""
+              },
+            "readOnly" : false,
+"description" : "",
+"type" : "string"
+            }
+          }
+        }
+      ],
+      "description" : ""
+    }
+  },
+  "paths": {
+    "\/demo/test" : {
+      "post" : {
+        "tags" : [ "DemoController" ],
+        "description" : "",
+        "operationId" : "test",
+        "consumes" : [ "application/xml", "application/json" ],
+        "produces" : [ "application/xml", "application/json" ],
+        "parameters" : [
+          {
+            "name" : "body",
+            "in" : "body",
+            "schema" : {
+"$ref" : "#/definitions/json_DemoRequestDto"
+            },
+            "description" : ""
+          }
+        ],
+        "responses" : {
+          "201" : {
+            "schema" : {
+"$ref" : "#/definitions/json_DemoResponseDto"
+            },
+            "example" : {
+  "code" : 12345,
+  "msg" : "..."
+},
+            "description" : ""
+          }
+        }
+      }
+    }
+  }
+}
